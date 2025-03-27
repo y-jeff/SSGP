@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>SSGP</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+
+    <body>
+        <header>
+            <div class="contrainer-fluid mt-5"><h1>Sistema de seguimiento de gastos personales</h1></div>            
+        </header>
+        <main>
+            <div class="container-fluid mt-5">
+                <div class="row">
+                    <div class="col">
+                        <label for="ingreso" class="form-label">Agregar ingreso</label>
+                        <input type="number" id="ingreso" class="form-control" placeholder="$ Ej: 1500">                        
+                    </div>
+                    <div class="col">
+                        <label for="nombreGasto" class="form-label">Nombre del gasto</label>
+                        <input type="text" id="nombreGasto" class="form-control" placeholder="Ej: Alquiler">
+                        
+                        <label for="montoGasto" class="form-label mt-2">Monto del gasto</label>
+                        <input type="number" id="montoGasto" class="form-control" placeholder="$ Ej: 400">                        
+                    </div>
+                </div>
+                <button type="button" class="btn btn-info">Agregar</button>
+                <div class="mt-4">
+                    <h3>Saldo actual: <span id="saldo">$0</span></h3>
+                  </div>
+                  
+                  <div class="mt-4">
+                    <h4>Movimientos</h4>
+                    <ul class="list-group" id="lista-movimientos">
+                      <!-- Los movimientos se agregarán aquí desde JavaScript -->
+                    </ul>
+                </div>
+                <div class="mt-4">
+                    <button class="btn btn-success" onclick="exportarCSV()">Exportar CSV</button>
+                    <button class="btn btn-outline-primary" onclick="exportarExcel()">
+                        📥 Exportar a Excel
+                    </button>
+                </div>
+                
+            </div>
+
+
+                            <!-- Modal de confirmación -->
+            <div class="modal fade" id="modalConfirmarEliminacion" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">¿Estás seguro?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                    ¿Deseas eliminar este movimiento?
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" id="btnConfirmarEliminar">Eliminar</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            
+        </main>
+        <footer class="text-center mt-5">
+            © 2025 Yeinson Reyes Rissi | Todos los derechos reservados
+        </footer>
+        <!-- Bootstrap JavaScript Libraries -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+        ></script>
+        <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+
+        <script src="app.js"></script>
+
+          
+    </body>
+</html>
